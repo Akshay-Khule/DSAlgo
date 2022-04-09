@@ -1,44 +1,45 @@
-package com.sortalgo;
-
-import java.util.Arrays;
+package com.ds.algo.akshay;
 
 public class Sort012 {
-	
-	public static void sortMe(int array[], int end){
-		int low=0;
-		int mid=0;
-		int high=1;
-		
-		while(mid <= end) {
-			if(array[mid] < high) {
-				swap(array, low, mid);
-                ++low;
-                ++mid;
-				
-			}else if (array[mid] > high) {
-				swap(array, mid, end);
-				--end;
-			}else {
-				++mid;
-			}
-		}
-	}
-
-	private static void swap(int[] array, int i, int j) {
-        int temp = array[i];
-        array[i] = array[j];
-        array[j] = temp;
-		
-		
-	}
 
 	public static void main(String[] args) {
-		 //TODO Auto-generated method stub
+		int array[]= {0, 1, 1, 0, 1, 2, 1, 2, 0, 0, 0, 1};
+		int n = array.length;
+		sort012(array, 0, n-1, 0 );
+		 printArray(array, n);
+	}
+
+	private static void printArray(int[] array, int n) {
+        int i;
+        for (i = 0; i < n; i++)
+            System.out.print(array[i] + " ");
+        System.out.println("");
 		
-		int array[] = {2, 1, 1 , 0, 1, 2, 1, 2, 0, 0, 0, 1};
-		int len = array.length-1;
-		sortMe(array,len);
-		System.out.println(Arrays.toString(array));	
+	}
+
+	private static void sort012(int[] array, int low, int high, int mid) {
+	
+		while (mid <= high) {
+
+			if(array[mid]==0) {
+				int temp = array[low];
+				array[low] = array[mid];
+				array[mid]= temp;
+				low++;
+				mid++;
+			}
+			else if(array[mid]==1) {
+				mid++;
+			}
+			else if(array[mid]==2) {
+				int temp = array[mid];
+				array[mid]= array[high];
+				array[high]=temp;
+				high--;
+			}
+		}
+
+		
 	}
 
 }

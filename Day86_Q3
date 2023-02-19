@@ -1,0 +1,83 @@
+import java.util.Arrays;
+import java.util.Comparator;
+import java.util.PriorityQueue;
+
+public class Day86_Q3 {
+	static class Pair{
+		int a;
+		int b;
+		public Pair(int a, int b) {
+			this.a=a;
+			this.b=b;
+		}
+	}
+
+	static class  compares implements Comparator<Pair>{
+
+		@Override
+		public int compare(Pair o1, Pair o2) {
+
+			if(o1.a>o2.a) {
+				return 1;
+			}else if(o1.a<o2.a) {
+				return -1;
+			}else {
+				return 0;
+			}
+		}
+
+
+
+	}
+	public static void main(String[] args) {
+		//		 A = [3, 8, 7, 5]
+		//				 B = [3, 1, 7, 19]
+
+
+
+		int A[] = new int[] {1, 7, 6, 2, 8, 4, 4, 6, 8, 2 };
+		int B[] = new int[] {8, 11, 7, 7, 10, 8, 7, 5, 4, 9};
+		solve(A, B);
+
+
+
+	}
+	private static int solve(int[] A, int[] B) {
+		int[] a=A;
+		int[] b=B;
+		int mod=1000000007;
+		Pair pairArray[] = new Pair[a.length];
+
+		for(int i=0; i<a.length; i++) {
+
+			pairArray[i] = new Pair(a[i], b[i]);
+		}
+
+		Arrays.sort(pairArray, new compares());
+
+		PriorityQueue<Integer> minheap = new PriorityQueue<Integer>();
+		int time=0;
+		int sum=0;
+		for(int i=0; i<pairArray.length; i++) {
+			if(time<=pairArray[i].a-1) {
+				sum =sum+pairArray[i].b;
+				sum = sum%mod;
+				minheap.add(pairArray[i].b);
+				time++;
+			}else {
+				int min=minheap.peek();
+
+				if(min<=pairArray[i].b) {
+					minheap.poll();
+					minheap.add(pairArray[i].b);
+					sum=sum-min;
+					sum=sum+pairArray[i].b;
+					sum = sum%mod;
+				}
+			}
+
+		}
+		return sum;
+	}
+
+}

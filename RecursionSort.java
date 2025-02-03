@@ -9,7 +9,7 @@ public class RecursionSort {
 	@SuppressWarnings("unchecked")
 	public static void main(String[] args) {
 		ArrayList arr = new ArrayList(
-                Arrays.asList(3,2,1,4,5,6,7)
+                Arrays.asList(3,2,1,4,5,6,7,9)
             );
             arr = sort(arr);
             System.out.println(arr);

@@ -7,7 +7,7 @@ public class QuickSelect {
 
 	public static void main(String[] args) {
 		
-        int array[] = {2, 3, 2, 4, 5, 3, 3, 4},  k = 3; 
+        int array[] = {2, 3, 2, 4, 5, 3, 3, 4, 6},  k = 3; 
         
         distinctElement(array, k); 
 

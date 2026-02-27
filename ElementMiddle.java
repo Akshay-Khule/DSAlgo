@@ -4,7 +4,7 @@ public class ElementMiddle {
 
 	public static void main(String[] args) {
 
-		int array[] = {6, 2, 5, 4, 7, 9, 11, 8, 10};
+		int array[] = {6, 2, 5, 4, 7, 9, 11, 8, 10, 11};
 		int len = array.length;
 		int k =findElement(array, len);
 		System.out.println("small"+ k);
@@ -30,3 +30,4 @@ public class ElementMiddle {
 	}
 
 }
+

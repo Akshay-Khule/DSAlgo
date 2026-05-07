@@ -7,7 +7,7 @@ public class FindKClosestElements {
 
 	public static void main(String[] args) {
 
-		int[] arr = {1,2,3,4,5,6,9};
+		int[] arr = {1,2,3,4,5,6,9,18};
 		int k = 4, x = 3;
 		
 		findClosestElements(arr, k, x);
